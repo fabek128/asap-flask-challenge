@@ -14,10 +14,10 @@ class DevelopmentConfig(Config):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
-class TestingConfig(Config):
+class TestConfig(Config):
     DEBUG = True
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'asaptest.db')
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:password@localhost/asaptesttdd'
     PRESERVE_CONTEXT_ON_EXCEPTION = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
@@ -27,7 +27,7 @@ class ProductionConfig(Config):
 
 config_by_name = dict(
     dev=DevelopmentConfig,
-    test=TestingConfig,
+    test=TestConfig,
     prod=ProductionConfig
 )
 
