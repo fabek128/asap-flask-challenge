@@ -12,7 +12,7 @@ def save_new_dictionary(data: Dict[str, str]) -> Tuple[Dict[str, str], int]:
             name=data['name'],
             created_on=data['created_on'],
             updated_on=data['updated_on'],
-            registered_on=datetime.datetime.utcnow()
+            idiom_id=data['idiom_id']
         )
         save_changes(new_dic)
         return ok(new_dic)

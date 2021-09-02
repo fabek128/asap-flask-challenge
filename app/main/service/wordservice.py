@@ -5,15 +5,15 @@ from app.main.model.word import Word
 from typing import Dict, Tuple
 
 def save_new_word(data: Dict[str, str]) -> Tuple[Dict[str, str], int]:
-    data_check = Word.query.filter_by(name=data['name']).first()
+    data_check = Word.query.filter_by(word=data['name']).first()
     if not data_check:
-        new_dic = Word(
-            name=data['name'],
+        new_word = Word(
+            word=data['name'],
             created_on=data['created_on'],
             updated_on=data['updated_on']
         )
-        save_changes(new_dic)
-        return ok(new_dic)
+        save_changes(new_word)
+        return ok(new_word)
     else:
         response_object = {
             'status': 'fail',

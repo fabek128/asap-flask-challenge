@@ -8,9 +8,7 @@ def save_new_state(data: Dict[str, str]) -> Tuple[Dict[str, str], int]:
     data_check = State.query.filter_by(name=data['name']).first()
     if not data_check:
         new_state = State(
-            name=data['name'],
-            created_on=data['created_on'],
-            updated_on=data['updated_on'],
+            name=data['name']
         )
         save_changes(new_state)
         return ok(new_state)

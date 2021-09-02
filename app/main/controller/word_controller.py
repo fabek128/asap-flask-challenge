@@ -22,6 +22,7 @@ class WordList(Resource):
     def post(self) -> Tuple[Dict[str, str], int]:
         """Creates a new word """
         data = request.json
+        print(data)
         return save_new_word(data=data)
 
 @api.route('/<id>')
